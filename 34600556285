@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <title>Mobile Bar</title>
+</head>
+<body style="font-family: Arial; text-align:center; padding:50px;">
+
+  <h1>🍸 Mobile Bar per Eventi</h1>
+
+  <p>Cocktail professionali per matrimoni, feste private ed eventi aziendali.</p>
+
+  <h2>Servizi</h2>
+  <p>✔ Matrimoni<br>
+     ✔ Compleanni<br>
+     ✔ Eventi aziendali</p>
+
+  <a href="https://wa.me/XXXXXXXXXXX" 
+     style="display:inline-block; padding:10px 20px; background:green; color:white; text-decoration:none; border-radius:5px;">
+     Contattaci su WhatsApp
+  </a>
+
+</body>
+</html>
