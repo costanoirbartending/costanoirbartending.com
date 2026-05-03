@@ -1,0 +1,996 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Costa Noir — Private Bartending & Event Photography</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,200;0,300;0,400;0,600;0,700;1,200;1,300&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+```
+:root {
+  --bg:        #141c17;
+  --bg-dark:   #0d1310;
+  --bg-card:   #182019;
+  --gold:      #f5f5f0;
+  --gold-light:#f5f5f0;
+  --white:     #f5f5f0;
+  --white-dim: rgba(245,245,240,0.6);
+  --border:    rgba(245,245,240,0.15);
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Montserrat', sans-serif;
+  background: var(--bg-dark);
+  color: var(--white);
+  overflow-x: hidden;
+}
+
+/* ── NOISE TEXTURE OVERLAY ── */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.5;
+}
+
+/* ── NAV ── */
+nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.4rem 4rem;
+  background: rgba(22,30,26,0.85);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
+}
+
+.nav-logo {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.4rem;
+  font-style: italic;
+  font-weight: 300;
+  letter-spacing: 0.12em;
+  color: var(--white);
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+.nav-logo-img {
+  height: 38px;
+  width: 38px;
+  object-fit: contain;
+  mix-blend-mode: lighten;
+  opacity: 0.9;
+}
+
+.nav-links {
+  display: flex;
+  gap: 2.5rem;
+  list-style: none;
+}
+
+.nav-links a {
+  color: var(--white-dim);
+  text-decoration: none;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  transition: color 0.3s;
+}
+
+.nav-links a:hover { color: var(--gold-light); }
+
+/* ── HERO ── */
+#hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 8rem 2rem 4rem;
+  background: var(--bg-dark);
+  overflow: hidden;
+}
+
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 80% 60% at 50% 40%, rgba(245,245,240,0.03) 0%, transparent 70%),
+    radial-gradient(ellipse 40% 40% at 20% 80%, rgba(20,28,23,0.8) 0%, transparent 60%);
+}
+
+/* Decorative lines */
+.hero-lines {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+.hero-lines::before,
+.hero-lines::after {
+  content: '';
+  position: absolute;
+  border: 1px solid var(--border);
+  border-radius: 50%;
+  animation: pulse 8s ease-in-out infinite;
+}
+.hero-lines::before {
+  width: 600px; height: 600px;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+}
+.hero-lines::after {
+  width: 900px; height: 900px;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  animation-delay: 2s;
+}
+@keyframes pulse {
+  0%, 100% { opacity: 0.15; transform: translate(-50%, -50%) scale(1); }
+  50%       { opacity: 0.30; transform: translate(-50%, -50%) scale(1.03); }
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+  animation: fadeUp 1.2s ease forwards;
+  opacity: 0;
+}
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.hero-eyebrow {
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 1.5rem;
+}
+
+.hero-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(4rem, 10vw, 8rem);
+  font-weight: 300;
+  font-style: italic;
+  line-height: 0.95;
+  letter-spacing: 0.02em;
+  color: var(--white);
+  margin-bottom: 1.5rem;
+}
+
+.hero-subtitle {
+  font-size: 0.75rem;
+  font-weight: 300;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--white-dim);
+  margin-bottom: 3rem;
+}
+
+.hero-cta {
+  display: inline-block;
+  padding: 0.9rem 2.5rem;
+  border: 1px solid var(--gold);
+  color: var(--gold-light);
+  text-decoration: none;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  transition: all 0.4s;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-cta::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--gold);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.4s ease;
+  z-index: -1;
+}
+
+.hero-cta:hover {
+  color: var(--bg-dark);
+}
+.hero-cta:hover::before { transform: scaleX(1); }
+
+/* ── SECTION BASE ── */
+section {
+  position: relative;
+  z-index: 1;
+}
+
+.section-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 6rem 2rem;
+}
+
+.section-label {
+  font-size: 0.62rem;
+  font-weight: 600;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 1rem;
+}
+
+.section-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: 300;
+  font-style: italic;
+  color: var(--white);
+  line-height: 1.1;
+  margin-bottom: 1.5rem;
+}
+
+.divider {
+  width: 60px;
+  height: 1px;
+  background: var(--gold);
+  margin: 1.5rem 0 2rem;
+}
+
+/* ── ABOUT ── */
+#about {
+  background: var(--bg);
+}
+
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 5rem;
+  align-items: center;
+}
+
+.about-text p {
+  font-size: 0.95rem;
+  font-weight: 300;
+  line-height: 1.9;
+  color: var(--white-dim);
+  margin-bottom: 1.2rem;
+}
+
+.about-text p strong {
+  color: var(--white);
+  font-weight: 600;
+}
+
+.about-image-wrap {
+  position: relative;
+}
+
+.about-image-placeholder {
+  width: 100%;
+  aspect-ratio: 3/4;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  color: var(--white-dim);
+}
+
+.about-image-placeholder svg {
+  width: 40px;
+  opacity: 0.3;
+}
+
+.about-image-placeholder p {
+  font-size: 0.7rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  opacity: 0.4;
+}
+
+.about-image-wrap::before {
+  content: '';
+  position: absolute;
+  top: -12px; left: -12px;
+  right: 12px; bottom: 12px;
+  border: 1px solid var(--border);
+  pointer-events: none;
+}
+
+/* ── SERVICES ── */
+#services {
+  background: var(--bg-dark);
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2px;
+  margin-top: 3rem;
+}
+
+.service-card {
+  background: var(--bg-card);
+  padding: 3.5rem;
+  border: 1px solid var(--border);
+  position: relative;
+  overflow: hidden;
+  transition: border-color 0.4s;
+}
+
+.service-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  transform: scaleX(0);
+  transition: transform 0.5s ease;
+}
+
+.service-card:hover {
+  border-color: rgba(201,168,76,0.5);
+}
+
+.service-card:hover::before {
+  transform: scaleX(1);
+}
+
+.service-number {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 4rem;
+  font-weight: 300;
+  color: var(--border);
+  line-height: 1;
+  margin-bottom: 1.5rem;
+}
+
+.service-name {
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--gold-light);
+  margin-bottom: 1rem;
+}
+
+.service-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 2rem;
+  font-weight: 300;
+  font-style: italic;
+  color: var(--white);
+  margin-bottom: 1.2rem;
+}
+
+.service-desc {
+  font-size: 0.88rem;
+  font-weight: 300;
+  line-height: 1.8;
+  color: var(--white-dim);
+}
+
+.service-features {
+  list-style: none;
+  margin-top: 1.5rem;
+}
+
+.service-features li {
+  font-size: 0.78rem;
+  font-weight: 400;
+  color: var(--white-dim);
+  padding: 0.5rem 0;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.service-features li::before {
+  content: '—';
+  color: var(--gold);
+  font-size: 0.6rem;
+}
+
+/* ── GALLERY ── */
+#gallery {
+  background: var(--bg);
+}
+
+.gallery-intro {
+  max-width: 500px;
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: auto;
+  gap: 6px;
+  margin-top: 3rem;
+}
+
+.gallery-item {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  overflow: hidden;
+  position: relative;
+  cursor: pointer;
+}
+
+.gallery-item:nth-child(1) { grid-column: span 2; }
+.gallery-item:nth-child(5) { grid-column: span 2; }
+
+.gallery-placeholder {
+  width: 100%;
+  aspect-ratio: 4/3;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  transition: background 0.3s;
+}
+
+.gallery-item:nth-child(1) .gallery-placeholder,
+.gallery-item:nth-child(5) .gallery-placeholder {
+  aspect-ratio: 16/9;
+}
+
+.gallery-placeholder svg {
+  width: 28px;
+  opacity: 0.2;
+}
+
+.gallery-placeholder p {
+  font-size: 0.6rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--white-dim);
+  opacity: 0.4;
+}
+
+.gallery-item:hover .gallery-placeholder {
+  background: rgba(201,168,76,0.05);
+}
+
+.gallery-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(22,30,26,0.7);
+  display: flex;
+  align-items: flex-end;
+  padding: 1.2rem;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.gallery-item:hover .gallery-overlay { opacity: 1; }
+
+.gallery-tag {
+  font-size: 0.6rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gold-light);
+  border: 1px solid var(--gold);
+  padding: 0.3rem 0.7rem;
+}
+
+.gallery-note {
+  margin-top: 2rem;
+  font-size: 0.75rem;
+  color: var(--white-dim);
+  font-style: italic;
+  opacity: 0.6;
+}
+
+/* ── QUOTE FORM ── */
+#preventivo {
+  background: var(--bg-dark);
+}
+
+.form-wrap {
+  display: grid;
+  grid-template-columns: 1fr 1.4fr;
+  gap: 5rem;
+  align-items: start;
+}
+
+.form-intro p {
+  font-size: 0.9rem;
+  font-weight: 300;
+  line-height: 1.9;
+  color: var(--white-dim);
+  margin-bottom: 2rem;
+}
+
+.contact-detail {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+  font-size: 0.78rem;
+  color: var(--white-dim);
+}
+
+.contact-detail span {
+  color: var(--gold-light);
+  font-weight: 600;
+  letter-spacing: 0.1em;
+}
+
+form {
+  display: grid;
+  gap: 1.2rem;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.2rem;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+label {
+  font-size: 0.62rem;
+  font-weight: 600;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+
+input, select, textarea {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  color: var(--white);
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 300;
+  padding: 0.85rem 1rem;
+  outline: none;
+  transition: border-color 0.3s;
+  width: 100%;
+  appearance: none;
+}
+
+input::placeholder, textarea::placeholder { color: rgba(245,245,240,0.3); }
+
+input:focus, select:focus, textarea:focus {
+  border-color: var(--gold);
+}
+
+select option {
+  background: var(--bg-dark);
+}
+
+textarea { resize: vertical; min-height: 120px; }
+
+.submit-btn {
+  margin-top: 0.5rem;
+  padding: 1rem 2.5rem;
+  background: transparent;
+  border: 1px solid var(--gold);
+  color: var(--gold-light);
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.4s;
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+}
+
+.submit-btn::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--gold);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.4s ease;
+  z-index: 0;
+}
+
+.submit-btn span { position: relative; z-index: 1; }
+
+.submit-btn:hover { color: var(--bg-dark); }
+.submit-btn:hover::before { transform: scaleX(1); }
+
+.form-success {
+  display: none;
+  padding: 1.2rem;
+  border: 1px solid var(--gold);
+  color: var(--gold-light);
+  font-size: 0.8rem;
+  letter-spacing: 0.1em;
+  text-align: center;
+}
+
+/* ── FOOTER ── */
+footer {
+  background: #0f1512;
+  border-top: 1px solid var(--border);
+  padding: 3rem 4rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.footer-logo {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.3rem;
+  font-style: italic;
+  font-weight: 300;
+  color: var(--white);
+  letter-spacing: 0.1em;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.footer-copy {
+  font-size: 0.65rem;
+  color: var(--white-dim);
+  letter-spacing: 0.1em;
+  opacity: 0.5;
+}
+
+/* ── HERO LOGO ── */
+.hero-logo-img {
+  width: 110px;
+  height: 110px;
+  object-fit: contain;
+  mix-blend-mode: lighten;
+  opacity: 0.85;
+  margin-bottom: 1.8rem;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* ── SCROLL ANIMATIONS ── */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 768px) {
+  nav { padding: 1.2rem 1.5rem; }
+  .nav-links { gap: 1.2rem; }
+  .about-grid,
+  .services-grid,
+  .form-wrap { grid-template-columns: 1fr; gap: 2.5rem; }
+  .gallery-grid { grid-template-columns: 1fr 1fr; }
+  .gallery-item:nth-child(1),
+  .gallery-item:nth-child(5) { grid-column: span 2; }
+  footer { flex-direction: column; gap: 1rem; text-align: center; }
+}
+```
+
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+
+  <nav>
+    <a class="nav-logo" href="#hero">
+      <img src="Logo%20-%202.png" alt="Costa Noir" class="nav-logo-img" />
+      Costa Noir
+    </a>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#gallery">Portfolio</a></li>
+      <li><a href="#preventivo">Get a Quote</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+
+  <section id="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-lines"></div>
+    <div class="hero-content">
+      <img src="Logo%20-%202.png" alt="Costa Noir" class="hero-logo-img" />
+      <p class="hero-eyebrow">Private Bartending &amp; Event Photography</p>
+      <h1 class="hero-title">Costa Noir</h1>
+      <p class="hero-subtitle">Intimate events. Extraordinary experiences.<br>Crafted with care, captured forever.</p>
+      <a href="#preventivo" class="hero-cta">Request a Quote</a>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+
+  <section id="about">
+    <div class="section-inner">
+      <div class="about-grid">
+        <div class="about-text reveal">
+          <p class="section-label">About Us</p>
+          <h2 class="section-title">The Concept</h2>
+          <div class="divider"></div>
+          <p>An exclusive experience designed to <strong>combine mixology and photography</strong>.</p>
+          <p>What you will experience: sunset aperitivos by the pool, intimate dinners under the stars, or cocktails enjoyed on the deck of your yacht.</p>
+          <p>From timeless classics to our exclusive signature cocktails, each experience is <strong>tailored and delivered to your favourite location</strong> — with elegant glassware, fresh ingredients, and an atmosphere of understated luxury.</p>
+        </div>
+        <div class="about-image-wrap reveal">
+          <div class="about-image-placeholder">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1">
+              <rect x="3" y="3" width="18" height="18" rx="1"/>
+              <circle cx="8.5" cy="8.5" r="1.5"/>
+              <polyline points="21 15 16 10 5 21"/>
+            </svg>
+            <p>Add your photo here</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+
+  <section id="services">
+    <div class="section-inner">
+      <p class="section-label reveal">What we do</p>
+      <h2 class="section-title reveal">Our Services</h2>
+      <div class="services-grid">
+
+```
+    <div class="service-card reveal">
+      <div class="service-number">01</div>
+      <p class="service-name">Private Bartending</p>
+      <h3 class="service-title">World-class craft, at your table</h3>
+      <p class="service-desc">Our bartender has honed his craft across acclaimed cocktail bars, five-star hotels and upscale venues in Italy and Australia. He brings that international standard directly to your event.</p>
+      <ul class="service-features">
+        <li>Bespoke cocktail menu designed around your tastes</li>
+        <li>Exclusive seasonal signature cocktails</li>
+        <li>Careful guidance in selecting the finest spirits</li>
+        <li>100% fresh, seasonal ingredients</li>
+        <li>Full bar setup & professional equipment included</li>
+        <li>Crystal glassware for every cocktail style</li>
+      </ul>
+    </div>
+
+    <div class="service-card reveal">
+      <div class="service-number">02</div>
+      <p class="service-name">Event Photography</p>
+      <h3 class="service-title">Every moment, forever</h3>
+      <p class="service-desc">Your host is also your photographer — present with you from booking to the final frame. Moving through your event with discretion, capturing the atmosphere, the emotion and the details that make your evening irreplaceable.</p>
+      <ul class="service-features">
+        <li>Dedicated host from first contact to event day</li>
+        <li>Candid & editorial-style coverage</li>
+        <li>Professional post-production editing</li>
+        <li>High-resolution digital gallery delivery</li>
+        <li>Custom printed menu designed around your event theme</li>
+        <li>Curated table setup tailored to the occasion</li>
+      </ul>
+    </div>
+
+  </div>
+</div>
+```
+
+  </section>
+
+  <!-- GALLERY -->
+
+  <section id="gallery">
+    <div class="section-inner">
+      <div class="gallery-intro reveal">
+        <p class="section-label">Portfolio</p>
+        <h2 class="section-title">Our Work</h2>
+        <div class="divider"></div>
+      </div>
+      <div class="gallery-grid">
+        <div class="gallery-item reveal">
+          <div class="gallery-placeholder">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><rect x="3" y="3" width="18" height="18" rx="1"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+            <p>Event photo</p>
+          </div>
+          <div class="gallery-overlay"><span class="gallery-tag">Bartending</span></div>
+        </div>
+        <div class="gallery-item reveal">
+          <div class="gallery-placeholder">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><rect x="3" y="3" width="18" height="18" rx="1"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+            <p>Event photo</p>
+          </div>
+          <div class="gallery-overlay"><span class="gallery-tag">Photography</span></div>
+        </div>
+        <div class="gallery-item reveal">
+          <div class="gallery-placeholder">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><rect x="3" y="3" width="18" height="18" rx="1"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+            <p>Event photo</p>
+          </div>
+          <div class="gallery-overlay"><span class="gallery-tag">Photography</span></div>
+        </div>
+        <div class="gallery-item reveal">
+          <div class="gallery-placeholder">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><rect x="3" y="3" width="18" height="18" rx="1"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+            <p>Event photo</p>
+          </div>
+          <div class="gallery-overlay"><span class="gallery-tag">Bartending</span></div>
+        </div>
+        <div class="gallery-item reveal">
+          <div class="gallery-placeholder">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><rect x="3" y="3" width="18" height="18" rx="1"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+            <p>Event photo</p>
+          </div>
+          <div class="gallery-overlay"><span class="gallery-tag">Event</span></div>
+        </div>
+        <div class="gallery-item reveal">
+          <div class="gallery-placeholder">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><rect x="3" y="3" width="18" height="18" rx="1"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+            <p>Event photo</p>
+          </div>
+          <div class="gallery-overlay"><span class="gallery-tag">Photography</span></div>
+        </div>
+      </div>
+      <p class="gallery-note reveal">* Grey placeholders show where to add your photos. Replace them with &lt;img&gt; tags pointing to your image files.</p>
+    </div>
+  </section>
+
+  <!-- PREVENTIVO -->
+
+  <section id="preventivo">
+    <div class="section-inner">
+      <div class="form-wrap">
+        <div class="form-intro reveal">
+          <p class="section-label">Contact</p>
+          <h2 class="section-title">Let's talk about your event</h2>
+          <div class="divider"></div>
+          <p>Every event is unique. Tell us what you have in mind — the occasion, the vibe, the guest count — and we'll get back to you within 48 hours with a tailored proposal.</p>
+          <div class="contact-detail">
+            <span>Email</span>
+            jessica.esposto@icloud.com
+          </div>
+        </div>
+
+```
+    <form id="quoteForm" onsubmit="handleSubmit(event)" reveal>
+      <div class="form-row">
+        <div class="field">
+          <label for="nome">First Name</label>
+          <input type="text" id="nome" name="nome" placeholder="Your first name" required />
+        </div>
+        <div class="field">
+          <label for="cognome">Last Name</label>
+          <input type="text" id="cognome" name="cognome" placeholder="Your last name" required />
+        </div>
+      </div>
+
+      <div class="field">
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" placeholder="your@email.com" required />
+      </div>
+
+      <div class="field">
+        <label for="telefono">Phone</label>
+        <input type="tel" id="telefono" name="telefono" placeholder="+39 000 000 0000" />
+      </div>
+
+      <div class="form-row">
+        <div class="field">
+          <label for="servizio">Service</label>
+          <select id="servizio" name="servizio" required>
+            <option value="" disabled selected>Select...</option>
+            <option value="bartending">Private Bartending</option>
+            <option value="fotografia">Event Photography</option>
+            <option value="entrambi">Bartending + Photography</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="data">Event Date</label>
+          <input type="date" id="data" name="data" />
+        </div>
+      </div>
+
+      <div class="field">
+        <label for="ospiti">Number of Guests</label>
+        <select id="ospiti" name="ospiti">
+          <option value="" disabled selected>Select...</option>
+          <option>Up to 10</option>
+          <option>10 – 20</option>
+          <option>20 – 35</option>
+          <option>35 – 50</option>
+        </select>
+      </div>
+
+      <div class="field">
+        <label for="messaggio">Tell us about your event</label>
+        <textarea id="messaggio" name="messaggio" placeholder="Type of event, venue, special requests..."></textarea>
+      </div>
+
+      <button type="submit" class="submit-btn"><span>Send Request</span></button>
+      <div class="form-success" id="successMsg">✦ Thank you! We'll get back to you within 48 hours.</div>
+    </form>
+  </div>
+</div>
+```
+
+  </section>
+
+  <!-- FOOTER -->
+
+  <footer>
+    <div class="footer-logo">
+      <img src="Logo%20-%202.png" alt="" style="height:32px;width:32px;object-fit:contain;mix-blend-mode:lighten;opacity:0.7;">
+      Costa Noir
+    </div>
+    <p class="footer-copy">© 2025 Costa Noir — All rights reserved</p>
+  </footer>
+
+  <script>
+    // Scroll reveal
+    const reveals = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry, i) => {
+        if (entry.isIntersecting) {
+          setTimeout(() => entry.target.classList.add('visible'), i * 80);
+        }
+      });
+    }, { threshold: 0.1 });
+    reveals.forEach(el => observer.observe(el));
+
+    // Form submit — opens email client
+    function handleSubmit(e) {
+      e.preventDefault();
+      const f = e.target;
+      const nome     = f.nome.value;
+      const cognome  = f.cognome.value;
+      const email    = f.email.value;
+      const telefono = f.telefono.value || 'Not provided';
+      const servizio = f.servizio.value;
+      const data     = f.data.value || 'To be confirmed';
+      const ospiti   = f.ospiti.value || 'Not specified';
+      const msg      = f.messaggio.value || '';
+
+      const subject = encodeURIComponent(`Quote Request – ${nome} ${cognome}`);
+      const body = encodeURIComponent(
+        `Name: ${nome} ${cognome}\nEmail: ${email}\nPhone: ${telefono}\n\nService: ${servizio}\nEvent Date: ${data}\nNumber of Guests: ${ospiti}\n\nMessage:\n${msg}`
+      );
+
+      window.location.href = `mailto:jessica.esposto@icloud.com?subject=${subject}&body=${body}`;
+
+      document.getElementById('successMsg').style.display = 'block';
+      f.reset();
+    }
+  </script>
+
+</body>
+</html>
