@@ -749,6 +749,9 @@ footer {
           <p>What you will experience: sunset aperitivos by the pool, intimate dinners under the stars, or cocktails enjoyed on the deck of your yacht.</p>
           <p>From timeless classics to our exclusive signature cocktails, each experience is <strong>tailored and delivered to your favourite location</strong> — with elegant glassware, fresh ingredients, and an atmosphere of understated luxury.</p>
         </div>
+      <div class="reveal" style="margin-top:3rem;">
+        <img src="IMG_4317.jpeg" alt="Costa Noir" style="width:100%;max-height:520px;object-fit:cover;display:block;" />
+      </div>
     </div>
   </section>
 
@@ -933,36 +936,28 @@ footer {
         <div class="divider"></div>
       </div>
       <div class="gallery-grid">
-        <!-- 1 orizzontale -->
-        <div class="gallery-item reveal" style="grid-column: span 3;">
-          <img src="IMG_4317.jpeg" alt="Costa Noir" style="width:100%;height:300px;object-fit:cover;" />
+        <div class="gallery-item reveal">
+          <img src="IMG_4751.jpeg" alt="Costa Noir" style="width:100%;height:220px;object-fit:cover;" />
+          <div class="gallery-overlay"><span class="gallery-tag">Photography</span></div>
+        </div>
+        <div class="gallery-item reveal">
+          <img src="IMG_5710.jpeg" alt="Costa Noir" style="width:100%;height:220px;object-fit:cover;" />
           <div class="gallery-overlay"><span class="gallery-tag">Bartending</span></div>
         </div>
-        <!-- 3 piccole -->
         <div class="gallery-item reveal">
-          <img src="IMG_5710.jpeg" alt="Costa Noir" style="width:100%;height:240px;object-fit:cover;" />
-          <div class="gallery-overlay"><span class="gallery-tag">Bartending</span></div>
-        </div>
-        <div class="gallery-item reveal">
-          <img src="IMG_5731.jpeg" alt="Costa Noir" style="width:100%;height:240px;object-fit:cover;" />
+          <img src="IMG_5731.jpeg" alt="Costa Noir" style="width:100%;height:220px;object-fit:cover;" />
           <div class="gallery-overlay"><span class="gallery-tag">Photography</span></div>
         </div>
         <div class="gallery-item reveal">
-          <img src="IMG_5945.jpeg" alt="Costa Noir" style="width:100%;height:240px;object-fit:cover;" />
+          <img src="IMG_5945.jpeg" alt="Costa Noir" style="width:100%;height:220px;object-fit:cover;" />
           <div class="gallery-overlay"><span class="gallery-tag">Photography</span></div>
         </div>
-        <!-- 1 orizzontale -->
-        <div class="gallery-item reveal" style="grid-column: span 3;">
-          <img src="IMG_4751.jpeg" alt="Costa Noir" style="width:100%;height:300px;object-fit:cover;" />
-          <div class="gallery-overlay"><span class="gallery-tag">Photography</span></div>
-        </div>
-        <!-- 2 piccole -->
         <div class="gallery-item reveal">
-          <img src="IMG_5805.jpeg" alt="Costa Noir" style="width:100%;height:240px;object-fit:cover;" />
+          <img src="IMG_5805.jpeg" alt="Costa Noir" style="width:100%;height:220px;object-fit:cover;" />
           <div class="gallery-overlay"><span class="gallery-tag">Event</span></div>
         </div>
         <div class="gallery-item reveal">
-          <img src="IMG_6139.jpeg" alt="Costa Noir" style="width:100%;height:240px;object-fit:cover;" />
+          <img src="IMG_6139.jpeg" alt="Costa Noir" style="width:100%;height:220px;object-fit:cover;" />
           <div class="gallery-overlay"><span class="gallery-tag">Bartending</span></div>
         </div>
       </div>
@@ -986,7 +981,8 @@ footer {
         </div>
 
 ```
-    <form id="quoteForm" onsubmit="handleSubmit(event)" reveal>
+    <form id="quoteForm" action="https://formspree.io/f/mnjwowyr" method="POST">
+      <input type="hidden" name="_subject" value="Quote Request — Costa Noir" />
       <div class="form-row">
         <div class="field">
           <label for="nome">First Name</label>
@@ -1059,7 +1055,6 @@ footer {
       </div>
 
       <button type="submit" class="submit-btn"><span>Send Request</span></button>
-      <div class="form-success" id="successMsg">✦ Thank you! We'll be in touch soon.</div>
     </form>
   </div>
 </div>
@@ -1089,29 +1084,6 @@ footer {
     }, { threshold: 0.1 });
     reveals.forEach(el => observer.observe(el));
 
-    // Form submit — opens email client
-    function handleSubmit(e) {
-      e.preventDefault();
-      const f = e.target;
-      const nome     = f.nome.value;
-      const cognome  = f.cognome.value;
-      const telefono = f.telefono.value || 'Not provided';
-      const cocktails = f.cocktails.value || 'Not specified';
-      const servizio = f.servizio.value;
-      const data     = f.data.value || 'To be confirmed';
-      const ospiti   = f.ospiti.value || 'Not specified';
-      const msg      = f.messaggio.value || '';
-
-      const subject = encodeURIComponent(`Quote Request – ${nome} ${cognome}`);
-      const body = encodeURIComponent(
-        `Name: ${nome} ${cognome}\nPhone: ${telefono}\n\nBar Option: ${servizio}\nEvent Date: ${data}\nNumber of Guests: ${ospiti}\nEvent Duration: ${f.durata.value || 'Not specified'}\nCocktails on the Menu: ${cocktails}\n\nMessage:\n${msg}`
-      );
-
-      window.location.href = `mailto:jessica.esposto@icloud.com?subject=${subject}&body=${body}`;
-
-      document.getElementById('successMsg').style.display = 'block';
-      f.reset();
-    }
   </script>
 
 </body>
