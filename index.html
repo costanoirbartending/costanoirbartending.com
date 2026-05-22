@@ -645,8 +645,8 @@
     .footer-logo {
       font-family: 'Cormorant Garamond', serif;
       font-size: 1.3rem;
-      font-style: italic;
-      font-weight: 300;
+      font-style: normal;
+      font-weight: 400;
       color: var(--white);
       letter-spacing: 0.1em;
       display: flex;
@@ -786,6 +786,7 @@
     <a href="#services" onclick="toggleMenu()">Services</a>
     <a href="#how-we-work" onclick="toggleMenu()">Bar Options</a>
     <a href="#experience" onclick="toggleMenu()">Setup</a>
+    <a href="#mission" onclick="toggleMenu()">Our Mission</a>
     <a href="#preventivo" onclick="toggleMenu()">Get a Quote</a>
   </div>
 
@@ -794,7 +795,6 @@
     <div class="hero-bg"></div>
     <div class="hero-lines"></div>
     <div class="hero-content">
-      <img src="Logo%20-%202.PNG" alt="Costa Noir" class="hero-logo-img" />
       <p class="hero-eyebrow">Private Bartending &amp; Event Photography</p>
       <p class="hero-subtitle">A refined experience, from the bar to the moment.</p>
       <a href="#preventivo" class="hero-cta">Request a Quote</a>
@@ -807,9 +807,9 @@
       <p class="section-label reveal">About Us</p>
       <h2 class="section-title reveal">The Concept</h2>
       <div class="divider reveal" style="margin:1.5rem auto 2rem;"></div>
-      <p class="reveal" style="font-size:1.05rem;font-weight:300;line-height:2;color:var(--white-dim);margin-bottom:1.2rem;">An exclusive experience designed to <strong style="color:var(--white);">combine mixology and photography</strong>.</p>
-      <p class="reveal" style="font-size:1.05rem;font-weight:300;line-height:2;color:var(--white-dim);margin-bottom:1.2rem;">What you will experience: sunset aperitivos by the pool, intimate dinners under the stars, or cocktails enjoyed on the deck of your yacht.</p>
-      <p class="reveal" style="font-size:1.05rem;font-weight:300;line-height:2;color:var(--white-dim);">From timeless classics to our exclusive signature cocktails, each experience is <strong style="color:var(--white);">tailored and delivered to your favourite location</strong> — with elegant glassware, fresh ingredients, and an atmosphere of understated luxury.</p>
+      <p class="reveal" style="font-size:0.9rem;font-weight:300;line-height:2;color:var(--white-dim);margin-bottom:1.2rem;">An exclusive experience designed to <strong style="color:var(--white);">combine mixology and photography</strong>.</p>
+      <p class="reveal" style="font-size:0.9rem;font-weight:300;line-height:2;color:var(--white-dim);margin-bottom:1.2rem;">What you will experience: sunset aperitivos by the pool, intimate dinners under the stars, or cocktails enjoyed on the deck of your yacht.</p>
+      <p class="reveal" style="font-size:0.9rem;font-weight:300;line-height:2;color:var(--white-dim);">From timeless classics to our exclusive signature cocktails, each experience is <strong style="color:var(--white);">tailored and delivered to your favourite location</strong> — with elegant glassware, fresh ingredients, and an atmosphere of understated luxury.</p>
       <div class="reveal" style="margin-top:4rem;">
         <img src="IMG_4751.jpeg" alt="Costa Noir" style="width:100%;max-height:260px;object-fit:cover;display:block;" />
       </div>
@@ -823,28 +823,19 @@
       <h2 class="section-title reveal">Our Services</h2>
       <div class="divider reveal"></div>
 
-      <!-- Service 1: text left, image right -->
       <div class="reveal" style="display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center;padding:5rem 0;border-bottom:1px solid var(--border);">
         <div>
           <p class="service-name">01 — Private Bartending</p>
           <h3 class="section-title" style="font-size:2.2rem;margin-bottom:1.2rem;">World-class craft, at your table</h3>
-          <p style="font-size:0.9rem;font-weight:300;line-height:1.9;color:var(--white-dim);margin-bottom:2rem;">Our bartender has honed his craft across renowned cocktail bars, five-star hotels and upscale venues in Italy and Australia. He brings that international standard directly to your event.</p>
-          <ul class="service-features">
-            <li>Bespoke cocktail menu designed around your tastes</li>
-            <li>Exclusive seasonal signature cocktails</li>
-            <li>House-made syrups, juices and infusions</li>
-            <li>100% fresh, seasonal ingredients</li>
-            <li>Full bar setup & professional equipment included</li>
-            <li>Crystal glassware for every cocktail style</li>
-            <li>High-quality ice & Crystal Clear Ice branded with our logo</li>
-          </ul>
+          <p style="font-size:0.9rem;font-weight:300;line-height:1.9;color:var(--white-dim);margin-bottom:1rem;">Our bartender has honed his craft across renowned cocktail bars, five-star hotels and upscale venues in Italy and Australia — and brings that international standard directly to your event.</p>
+          <p style="font-size:0.9rem;font-weight:300;line-height:1.9;color:var(--white-dim);margin-bottom:1rem;">Every menu is built around the occasion: exclusive seasonal signature cocktails alongside timeless classics, all prepared with 100% fresh ingredients, house-made syrups, juices and infusions.</p>
+          <p style="font-size:0.9rem;font-weight:300;line-height:1.9;color:var(--white-dim);">We arrive fully equipped — professional bar setup, crystal glassware for every cocktail style, high-quality ice and Crystal Clear Ice branded with our logo for a slower, cleaner dilution.</p>
         </div>
         <div>
           <img src="IMG_4278.jpeg" alt="Costa Noir" style="width:100%;height:280px;object-fit:cover;display:block;" />
         </div>
       </div>
 
-      <!-- Service 2: image left, text right -->
       <div class="reveal" style="display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center;padding:5rem 0;">
         <div>
           <img src="IMG_5710.jpeg" alt="Costa Noir" style="width:100%;height:280px;object-fit:cover;display:block;" />
@@ -852,15 +843,8 @@
         <div>
           <p class="service-name">02 — Event Photography</p>
           <h3 class="section-title" style="font-size:2.2rem;margin-bottom:1.2rem;">Every moment, forever</h3>
-          <p style="font-size:0.9rem;font-weight:300;line-height:1.9;color:var(--white-dim);margin-bottom:2rem;">Your host is also your photographer — present with you from booking to the final frame. Moving through your event with discretion, capturing the atmosphere, the emotion and the details that make your evening irreplaceable.</p>
-          <ul class="service-features">
-            <li>Dedicated host from first contact to event day</li>
-            <li>Guidance on cocktail selection for your menu</li>
-            <li>Setup & decoration consultation — everything personalised to your taste</li>
-            <li>Candid & editorial-style coverage</li>
-            <li>Professional post-production editing</li>
-            <li>High-resolution digital gallery delivery</li>
-          </ul>
+          <p style="font-size:0.9rem;font-weight:300;line-height:1.9;color:var(--white-dim);margin-bottom:1rem;">Your host is also behind the lens — present from the first message, guiding the cocktail selection, the setup and every detail, then moving through the evening quietly, capturing the atmosphere and the moments as they happen.</p>
+          <p style="font-size:0.9rem;font-weight:300;line-height:1.9;color:var(--white-dim);">Every image is professionally edited and delivered in high resolution — because some evenings deserve to last forever.</p>
         </div>
       </div>
 
@@ -873,32 +857,18 @@
       <p class="section-label reveal">How We Work</p>
       <h2 class="section-title reveal">Spirits & Bar Options</h2>
       <div class="divider reveal"></div>
-      <p class="reveal" style="font-size:0.95rem;font-weight:300;line-height:1.9;color:var(--white-dim);margin-bottom:4rem;">We offer two different approaches to spirits and alcohol — both designed to give you full flexibility while ensuring the highest quality at your event.</p>
+      <p class="reveal" style="font-size:0.9rem;font-weight:300;line-height:1.9;color:var(--white-dim);margin-bottom:4rem;">We offer two different approaches to spirits — both designed to give you full flexibility while ensuring the highest quality.</p>
 
-      <!-- Option A -->
       <div class="reveal" style="padding:3rem 0;border-top:1px solid var(--border);">
         <p class="service-name" style="margin-bottom:0.8rem;">A — Dry Hire</p>
         <h3 class="section-title" style="font-size:2rem;margin-bottom:1.2rem;">Your spirits, our craft</h3>
-        <p style="font-size:0.9rem;font-weight:300;line-height:1.9;color:var(--white-dim);margin-bottom:1.5rem;">You source and purchase the spirits yourself — giving you complete control over budget and brands. We guide you through every choice, recommending exactly what to buy, in what quantities, and where to find it.</p>
-        <ul class="service-features">
-          <li>Full spirits consultation & shopping list provided</li>
-          <li>You choose the brands, guided by our expertise</li>
-          <li>Control over quantity and spend</li>
-          <li>Ideal if you already have preferred labels</li>
-        </ul>
+        <p style="font-size:0.9rem;font-weight:300;line-height:1.9;color:var(--white-dim);">You source the spirits — we handle everything else. We provide a full consultation and a precise shopping list, guiding you through exactly what to buy, how much, and where to find it. Ideal if you already have preferred brands or labels in mind.</p>
       </div>
 
-      <!-- Option B -->
       <div class="reveal" style="padding:3rem 0;border-top:1px solid var(--border);">
         <p class="service-name" style="margin-bottom:0.8rem;">B — Open Bar</p>
         <h3 class="section-title" style="font-size:2rem;margin-bottom:1.2rem;">We take care of everything</h3>
-        <p style="font-size:0.9rem;font-weight:300;line-height:1.9;color:var(--white-dim);margin-bottom:1.5rem;">We source and bring all the spirits — carefully selected from a curated range of premium labels. Every bottle is chosen with the same attention we give to every other detail of your event.</p>
-        <ul class="service-features">
-          <li>Premium spirits selection, handpicked by our bartender</li>
-          <li>A range of spirit qualities available — from refined to top-shelf</li>
-          <li>Any unopened bottles remaining after the event are yours to keep</li>
-          <li>The effortless option — we handle it all</li>
-        </ul>
+        <p style="font-size:0.9rem;font-weight:300;line-height:1.9;color:var(--white-dim);">The most effortless option — we bring it all. Spirits are handpicked by our bartender from a curated selection of premium labels, ranging from refined to top-shelf. Any unopened bottles at the end of the night are yours to keep.</p>
       </div>
 
       <div class="reveal" style="padding:3rem 0 0;">
@@ -914,41 +884,38 @@
       <h2 class="section-title reveal">Beyond the Bar</h2>
       <div class="divider reveal"></div>
 
-      <!-- Setup: text left, image right -->
       <div class="reveal" style="display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center;padding:5rem 0;border-bottom:1px solid var(--border);">
         <div>
           <p class="service-name">Event Setup & Styling</p>
           <h3 class="section-title" style="font-size:2.2rem;margin-bottom:1.2rem;">Your vision, our execution</h3>
-          <p style="font-size:0.9rem;font-weight:300;line-height:1.9;color:var(--white-dim);margin-bottom:2rem;">We design and print a custom cocktail menu for every event — <strong style="color:var(--white);">you choose the colours, the title and the theme</strong>, and we bring it to life. We also dress the bar and the space with curated decorations: flowers, candles and lamps that elevate the whole atmosphere.</p>
-          <ul class="service-features">
-            <li>Custom printed cocktail menus for each event</li>
-            <li>You pick the colours, title & design direction</li>
-            <li>Floral arrangements, candles & ambient lighting</li>
-          </ul>
+          <p style="font-size:0.9rem;font-weight:300;line-height:1.9;color:var(--white-dim);">Every event comes with a custom printed cocktail menu — colours, title and design direction are yours to choose. The bar and the space are dressed with care: flowers, candles, ambient lighting. Small details that shift the feeling of a room entirely.</p>
         </div>
         <div>
           <img src="IMG_6265.jpeg" alt="Costa Noir" style="width:100%;height:280px;object-fit:cover;display:block;" />
         </div>
       </div>
 
-      <!-- Mobile: image left, text right -->
       <div class="reveal" style="display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center;padding:5rem 0;">
         <div>
-          <img src="IMG_5731.jpeg" alt="Costa Noir" style="width:100%;height:280px;object-fit:cover;display:block;" />
+          <img src="IMG_6139.jpeg" alt="Costa Noir" style="width:100%;height:280px;object-fit:cover;display:block;" />
         </div>
         <div>
           <p class="service-name">Fully Mobile Service</p>
           <h3 class="section-title" style="font-size:2.2rem;margin-bottom:1.2rem;">We come to you — anywhere</h3>
-          <p style="font-size:0.9rem;font-weight:300;line-height:1.9;color:var(--white-dim);margin-bottom:2rem;">Everything we do is completely transportable. Whether you're hosting at a private villa, on a yacht, in a rooftop penthouse or a countryside garden — we arrive fully equipped and set up a seamless bar experience from scratch.</p>
-          <ul class="service-features">
-            <li>Private villas & residences</li>
-            <li>Yachts & boats</li>
-            <li>Rooftops, gardens & outdoor spaces</li>
-            <li>Any location — no venue required</li>
-          </ul>
+          <p style="font-size:0.9rem;font-weight:300;line-height:1.9;color:var(--white-dim);">Everything we do is completely transportable. Villa, yacht, rooftop, garden — we travel to the location and set everything up from scratch, wherever you are.</p>
         </div>
       </div>
 
+    </div>
+  </section>
+
+  <!-- MISSION -->
+  <section id="mission" style="background: var(--bg-dark);">
+    <div class="section-inner" style="max-width:700px;margin:0 auto;padding:6rem 2rem;text-align:center;">
+      <p class="section-label reveal">Our Mission</p>
+      <h2 class="section-title reveal">What drives us</h2>
+      <div class="divider reveal" style="margin:1.5rem auto 2rem;"></div>
+      <p class="reveal" style="font-size:0.95rem;font-weight:300;line-height:2.1;color:var(--white-dim);">Costa Noir is born from a shared passion for hospitality, travel and refined experience.<br><br>We built it around one belief: that the best moments in life happen around a table, a drink and the right company.<br><br>Our mission is to make sure those moments are worth remembering.</p>
     </div>
   </section>
 
