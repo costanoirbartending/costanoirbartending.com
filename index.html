@@ -790,11 +790,10 @@
     <a href="#preventivo" onclick="toggleMenu()">Get a Quote</a>
   </div>
 
-  <!-- HERO -->
-  <section id="hero">
-    <div class="hero-bg"></div>
-    <div class="hero-lines"></div>
-    <div class="hero-content">
+  <!-- HERO with full background photo -->
+  <section id="hero" style="position:relative;min-height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;overflow:hidden;">
+    <div style="position:absolute;inset:0;background-image:url('IMG_6608.jpeg');background-size:cover;background-position:center;filter:brightness(0.45);"></div>
+    <div class="hero-content" style="position:relative;z-index:1;">
       <p class="hero-eyebrow">Private Bartending &amp; Event Photography</p>
       <p class="hero-subtitle">A refined experience, from the bar to the moment.</p>
       <a href="#preventivo" class="hero-cta">Request a Quote</a>
@@ -810,11 +809,13 @@
       <p class="reveal" style="font-size:0.9rem;font-weight:300;line-height:2;color:var(--white-dim);margin-bottom:1.2rem;">An exclusive experience designed to <strong style="color:var(--white);">combine mixology and photography</strong>.</p>
       <p class="reveal" style="font-size:0.9rem;font-weight:300;line-height:2;color:var(--white-dim);margin-bottom:1.2rem;">What you will experience: sunset aperitivos by the pool, intimate dinners under the stars, or cocktails enjoyed on the deck of your yacht.</p>
       <p class="reveal" style="font-size:0.9rem;font-weight:300;line-height:2;color:var(--white-dim);">From timeless classics to our exclusive signature cocktails, each experience is <strong style="color:var(--white);">tailored and delivered to your favourite location</strong> — with elegant glassware, fresh ingredients, and an atmosphere of understated luxury.</p>
-      <div class="reveal" style="margin-top:4rem;">
-        <img src="IMG_4751.jpeg" alt="Costa Noir" style="width:100%;max-height:260px;object-fit:cover;display:block;" />
-      </div>
     </div>
   </section>
+
+  <!-- FULL BLEED PHOTO: IMG_6591 -->
+  <div style="width:100%;height:70vh;overflow:hidden;">
+    <img src="IMG_6591.jpeg" alt="Costa Noir" style="width:100%;height:100%;object-fit:cover;object-position:center;" />
+  </div>
 
   <!-- SERVICES -->
   <section id="services" style="background: var(--bg);">
@@ -823,33 +824,37 @@
       <h2 class="section-title reveal">Our Services</h2>
       <div class="divider reveal"></div>
 
-      <div class="reveal" style="display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center;padding:5rem 0;border-bottom:1px solid var(--border);">
-        <div>
+      <!-- Bartending with IMG_6554 as background -->
+      <div class="reveal" style="position:relative;padding:6rem 4rem;margin:4rem 0;overflow:hidden;border-bottom:1px solid var(--border);">
+        <div style="position:absolute;inset:0;background-image:url('IMG_6554.jpeg');background-size:cover;background-position:center;filter:brightness(0.25);"></div>
+        <div style="position:relative;z-index:1;max-width:540px;">
           <p class="service-name">01 — Private Bartending</p>
           <h3 class="section-title" style="font-size:2.2rem;margin-bottom:1.2rem;">World-class craft, at your table</h3>
           <p style="font-size:0.9rem;font-weight:300;line-height:1.9;color:var(--white-dim);margin-bottom:1rem;">Our bartender has honed his craft across renowned cocktail bars, five-star hotels and upscale venues in Italy and Australia — and brings that international standard directly to your event.</p>
           <p style="font-size:0.9rem;font-weight:300;line-height:1.9;color:var(--white-dim);margin-bottom:1rem;">Every menu is built around the occasion: exclusive seasonal signature cocktails alongside timeless classics, all prepared with 100% fresh ingredients, house-made syrups, juices and infusions.</p>
           <p style="font-size:0.9rem;font-weight:300;line-height:1.9;color:var(--white-dim);">We arrive fully equipped — professional bar setup, crystal glassware for every cocktail style, high-quality ice and Crystal Clear Ice branded with our logo for a slower, cleaner dilution.</p>
         </div>
-        <div>
-          <img src="IMG_4278.jpeg" alt="Costa Noir" style="width:100%;height:280px;object-fit:cover;display:block;" />
-        </div>
       </div>
 
-      <div class="reveal" style="display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center;padding:5rem 0;">
-        <div>
-          <img src="IMG_5710.jpeg" alt="Costa Noir" style="width:100%;height:280px;object-fit:cover;display:block;" />
-        </div>
-        <div>
-          <p class="service-name">02 — Event Photography</p>
-          <h3 class="section-title" style="font-size:2.2rem;margin-bottom:1.2rem;">Every moment, forever</h3>
-          <p style="font-size:0.9rem;font-weight:300;line-height:1.9;color:var(--white-dim);margin-bottom:1rem;">Your host is also behind the lens — present from the first message, guiding the cocktail selection, the setup and every detail, then moving through the evening quietly, capturing the atmosphere and the moments as they happen.</p>
-          <p style="font-size:0.9rem;font-weight:300;line-height:1.9;color:var(--white-dim);">Every image is professionally edited and delivered in high resolution — because some evenings deserve to last forever.</p>
-        </div>
+      <div class="reveal" style="padding:5rem 0;">
+        <p class="service-name">02 — Event Photography</p>
+        <h3 class="section-title" style="font-size:2.2rem;margin-bottom:1.2rem;">Every moment, forever</h3>
+        <p style="font-size:0.9rem;font-weight:300;line-height:1.9;color:var(--white-dim);margin-bottom:1rem;max-width:620px;">Your host is also behind the lens — present from the first message, guiding the cocktail selection, the setup and every detail, then moving through the evening quietly, capturing the atmosphere and the moments as they happen.</p>
+        <p style="font-size:0.9rem;font-weight:300;line-height:1.9;color:var(--white-dim);max-width:620px;">Every image is professionally edited and delivered in high resolution — because some evenings deserve to last forever.</p>
       </div>
 
     </div>
   </section>
+
+  <!-- FULL BLEED: IMG_5710 -->
+  <div style="width:100%;height:70vh;overflow:hidden;">
+    <img src="IMG_5710.jpeg" alt="Costa Noir" style="width:100%;height:100%;object-fit:cover;object-position:center;" />
+  </div>
+
+  <!-- FULL BLEED: IMG_4278 -->
+  <div style="width:100%;height:70vh;overflow:hidden;">
+    <img src="IMG_4278.jpeg" alt="Costa Noir" style="width:100%;height:100%;object-fit:cover;object-position:center;" />
+  </div>
 
   <!-- HOW WE WORK -->
   <section id="how-we-work" style="background: var(--bg-dark);">
@@ -870,44 +875,45 @@
         <h3 class="section-title" style="font-size:2rem;margin-bottom:1.2rem;">We take care of everything</h3>
         <p style="font-size:0.9rem;font-weight:300;line-height:1.9;color:var(--white-dim);">The most effortless option — we bring it all. Spirits are handpicked by our bartender from a curated selection of premium labels, ranging from refined to top-shelf. Any unopened bottles at the end of the night are yours to keep.</p>
       </div>
-
-      <div class="reveal" style="padding:3rem 0 0;">
-        <img src="IMG_5731.jpeg" alt="Costa Noir" style="width:100%;max-height:260px;object-fit:cover;display:block;" />
-      </div>
     </div>
   </section>
 
+  <!-- FULL BLEED: IMG_5731 -->
+  <div style="width:100%;height:70vh;overflow:hidden;">
+    <img src="IMG_5731.jpeg" alt="Costa Noir" style="width:100%;height:100%;object-fit:cover;object-position:center;" />
+  </div>
+
   <!-- EXPERIENCE & SETUP -->
   <section id="experience" style="background: var(--bg);">
-    <div class="section-inner">
+    <div class="section-inner" style="max-width:800px;margin:0 auto;">
       <p class="section-label reveal">The Details</p>
       <h2 class="section-title reveal">Beyond the Bar</h2>
       <div class="divider reveal"></div>
 
-      <div class="reveal" style="display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center;padding:5rem 0;border-bottom:1px solid var(--border);">
-        <div>
-          <p class="service-name">Event Setup & Styling</p>
-          <h3 class="section-title" style="font-size:2.2rem;margin-bottom:1.2rem;">Your vision, our execution</h3>
-          <p style="font-size:0.9rem;font-weight:300;line-height:1.9;color:var(--white-dim);">Every event comes with a custom printed cocktail menu — colours, title and design direction are yours to choose. The bar and the space are dressed with care: flowers, candles, ambient lighting. Small details that shift the feeling of a room entirely.</p>
-        </div>
-        <div>
-          <img src="IMG_6265.jpeg" alt="Costa Noir" style="width:100%;height:280px;object-fit:cover;display:block;" />
-        </div>
+      <div class="reveal" style="padding:3rem 0;border-top:1px solid var(--border);margin-top:2rem;">
+        <p class="service-name" style="margin-bottom:0.8rem;">Event Setup & Styling</p>
+        <h3 class="section-title" style="font-size:2rem;margin-bottom:1.2rem;">Your vision, our execution</h3>
+        <p style="font-size:0.9rem;font-weight:300;line-height:1.9;color:var(--white-dim);">Every event comes with a custom printed cocktail menu — colours, title and design direction are yours to choose. The bar and the space are dressed with care: flowers, candles, ambient lighting. Small details that shift the feeling of a room entirely.</p>
       </div>
 
-      <div class="reveal" style="display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center;padding:5rem 0;">
-        <div>
-          <img src="IMG_6139.jpeg" alt="Costa Noir" style="width:100%;height:280px;object-fit:cover;display:block;" />
-        </div>
-        <div>
-          <p class="service-name">Fully Mobile Service</p>
-          <h3 class="section-title" style="font-size:2.2rem;margin-bottom:1.2rem;">We come to you — anywhere</h3>
-          <p style="font-size:0.9rem;font-weight:300;line-height:1.9;color:var(--white-dim);">Everything we do is completely transportable. Villa, yacht, rooftop, garden — we travel to the location and set everything up from scratch, wherever you are.</p>
-        </div>
+      <div class="reveal" style="padding:3rem 0;border-top:1px solid var(--border);">
+        <p class="service-name" style="margin-bottom:0.8rem;">Fully Mobile Service</p>
+        <h3 class="section-title" style="font-size:2rem;margin-bottom:1.2rem;">We come to you — anywhere</h3>
+        <p style="font-size:0.9rem;font-weight:300;line-height:1.9;color:var(--white-dim);">Everything we do is completely transportable. Villa, yacht, rooftop, garden — we travel to the location and set everything up from scratch, wherever you are.</p>
       </div>
-
     </div>
   </section>
+
+  <!-- FULL BLEED: IMG_6265 + IMG_6139 side by side -->
+  <div style="width:100%;height:70vh;display:grid;grid-template-columns:1fr 1fr;overflow:hidden;">
+    <img src="IMG_6265.jpeg" alt="Costa Noir" style="width:100%;height:100%;object-fit:cover;" />
+    <img src="IMG_6139.jpeg" alt="Costa Noir" style="width:100%;height:100%;object-fit:cover;" />
+  </div>
+
+  <!-- FULL BLEED: IMG_4751 before mission -->
+  <div style="width:100%;height:60vh;overflow:hidden;">
+    <img src="IMG_4751.jpeg" alt="Costa Noir" style="width:100%;height:100%;object-fit:cover;object-position:center;" />
+  </div>
 
   <!-- MISSION -->
   <section id="mission" style="background: var(--bg-dark);">
