@@ -913,42 +913,21 @@
     </div>
   </section>
 
-  <!-- GALLERY CAROUSEL -->
+  <!-- GALLERY -->
   <section id="gallery" style="background: var(--bg-dark);padding:6rem 0;">
     <div class="section-inner" style="max-width:1100px;margin:0 auto;padding:0 2rem;">
       <p class="section-label reveal">Portfolio</p>
       <h2 class="section-title reveal">Our Gallery</h2>
       <div class="divider reveal"></div>
-    </div>
-    <div style="position:relative;margin-top:3rem;">
-      <div id="carousel" style="display:flex;overflow:hidden;width:100%;">
-        <div class="carousel-slide" style="min-width:100%;height:80vh;flex-shrink:0;">
-          <img src="IMG_5710.jpeg" alt="Costa Noir" style="width:100%;height:100%;object-fit:cover;" />
-        </div>
-        <div class="carousel-slide" style="min-width:100%;height:80vh;flex-shrink:0;">
-          <img src="IMG_5780.jpeg" alt="Costa Noir" style="width:100%;height:100%;object-fit:cover;" />
-        </div>
-        <div class="carousel-slide" style="min-width:100%;height:80vh;flex-shrink:0;">
-          <img src="IMG_6562.jpeg" alt="Costa Noir" style="width:100%;height:100%;object-fit:cover;" />
-        </div>
-        <div class="carousel-slide" style="min-width:100%;height:80vh;flex-shrink:0;">
-          <img src="IMG_6591.jpeg" alt="Costa Noir" style="width:100%;height:100%;object-fit:cover;" />
-        </div>
-        <div class="carousel-slide" style="min-width:100%;height:80vh;flex-shrink:0;">
-          <img src="IMG_6606.jpeg" alt="Costa Noir" style="width:100%;height:100%;object-fit:cover;" />
-        </div>
-        <div class="carousel-slide" style="min-width:100%;height:80vh;flex-shrink:0;">
-          <img src="IMG_6841.jpeg" alt="Costa Noir" style="width:100%;height:100%;object-fit:cover;" />
-        </div>
-        <div class="carousel-slide" style="min-width:100%;height:80vh;flex-shrink:0;">
-          <img src="IMG_6862.jpeg" alt="Costa Noir" style="width:100%;height:100%;object-fit:cover;" />
-        </div>
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin-top:3rem;">
+        <img src="IMG_5710.jpeg" alt="Costa Noir" style="width:100%;aspect-ratio:3/2;object-fit:cover;display:block;" />
+        <img src="IMG_5780.jpeg" alt="Costa Noir" style="width:100%;aspect-ratio:3/2;object-fit:cover;display:block;" />
+        <img src="IMG_6562.jpeg" alt="Costa Noir" style="width:100%;aspect-ratio:3/2;object-fit:cover;display:block;" />
+        <img src="IMG_6591.jpeg" alt="Costa Noir" style="width:100%;aspect-ratio:3/2;object-fit:cover;display:block;" />
+        <img src="IMG_6606.jpeg" alt="Costa Noir" style="width:100%;aspect-ratio:3/2;object-fit:cover;display:block;" />
+        <img src="IMG_6841.jpeg" alt="Costa Noir" style="width:100%;aspect-ratio:3/2;object-fit:cover;display:block;" />
+        <img src="IMG_6862.jpeg" alt="Costa Noir" style="width:100%;aspect-ratio:3/2;object-fit:cover;display:block;" />
       </div>
-      <!-- Arrows -->
-      <button onclick="moveCarousel(-1)" style="position:absolute;top:50%;left:1.5rem;transform:translateY(-50%);background:rgba(4,13,7,0.7);border:1px solid rgba(245,245,240,0.3);color:var(--white);width:44px;height:44px;cursor:pointer;font-size:1.2rem;display:flex;align-items:center;justify-content:center;">&#8592;</button>
-      <button onclick="moveCarousel(1)" style="position:absolute;top:50%;right:1.5rem;transform:translateY(-50%);background:rgba(4,13,7,0.7);border:1px solid rgba(245,245,240,0.3);color:var(--white);width:44px;height:44px;cursor:pointer;font-size:1.2rem;display:flex;align-items:center;justify-content:center;">&#8594;</button>
-      <!-- Dots -->
-      <div id="dots" style="display:flex;justify-content:center;gap:0.5rem;padding:1.5rem 0;"></div>
     </div>
   </section>
 
