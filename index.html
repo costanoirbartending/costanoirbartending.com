@@ -787,12 +787,13 @@
     <a href="#how-we-work" onclick="toggleMenu()">Bar Options</a>
     <a href="#experience" onclick="toggleMenu()">Setup</a>
     <a href="#mission" onclick="toggleMenu()">Our Mission</a>
+    <a href="#gallery" onclick="toggleMenu()">Our Gallery</a>
     <a href="#preventivo" onclick="toggleMenu()">Get a Quote</a>
   </div>
 
   <!-- HERO with full background photo -->
   <section id="hero" style="position:relative;min-height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;overflow:hidden;">
-    <div style="position:absolute;inset:0;background-image:url('IMG_6608.jpeg');background-size:cover;background-position:center;filter:brightness(0.45);"></div>
+    <div style="position:absolute;inset:0;background-image:url('IMG_7000.jpeg');background-size:cover;background-position:center;filter:brightness(0.45);"></div>
     <div class="hero-content" style="position:relative;z-index:1;">
       <p class="hero-eyebrow">Private Bartending &amp; Event Photography</p>
       <p class="hero-subtitle">A refined experience, from the bar to the moment.</p>
@@ -812,9 +813,9 @@
     </div>
   </section>
 
-  <!-- FULL BLEED: IMG_6591 -->
+  <!-- FULL BLEED: IMG_6885 -->
   <div style="width:100%;height:70vh;overflow:hidden;">
-    <img src="IMG_6591.jpeg" alt="Costa Noir" style="width:100%;height:100%;object-fit:cover;object-position:center;" />
+    <img src="IMG_6885.jpeg" alt="Costa Noir" style="width:100%;height:100%;object-fit:cover;object-position:center;" />
   </div>
 
   <!-- SERVICES -->
@@ -870,10 +871,9 @@
     </div>
   </section>
 
-  <!-- FULL BLEED: IMG_5710 + IMG_5731 side by side -->
-  <div style="width:100%;height:70vh;display:grid;grid-template-columns:1fr 1fr;overflow:hidden;">
-    <img src="IMG_5710.jpeg" alt="Costa Noir" style="width:100%;height:100%;object-fit:cover;" />
-    <img src="IMG_5731.jpeg" alt="Costa Noir" style="width:100%;height:100%;object-fit:cover;" />
+  <!-- FULL BLEED: IMG_5731 -->
+  <div style="width:100%;height:70vh;overflow:hidden;">
+    <img src="IMG_5731.jpeg" alt="Costa Noir" style="width:100%;height:100%;object-fit:cover;object-position:center;" />
   </div>
 
   <!-- EXPERIENCE & SETUP -->
@@ -910,6 +910,45 @@
       <h2 class="section-title reveal">What drives us</h2>
       <div class="divider reveal" style="margin:1.5rem auto 2rem;"></div>
       <p class="reveal" style="font-size:0.95rem;font-weight:300;line-height:2.1;color:var(--white-dim);">Costa Noir is born from a shared passion for hospitality, travel and refined experience.<br><br>We built it around one belief: that the best moments in life happen around a table, a drink and the right company.<br><br>Our mission is to make sure those moments are worth remembering.</p>
+    </div>
+  </section>
+
+  <!-- GALLERY CAROUSEL -->
+  <section id="gallery" style="background: var(--bg-dark);padding:6rem 0;">
+    <div class="section-inner" style="max-width:1100px;margin:0 auto;padding:0 2rem;">
+      <p class="section-label reveal">Portfolio</p>
+      <h2 class="section-title reveal">Our Gallery</h2>
+      <div class="divider reveal"></div>
+    </div>
+    <div style="position:relative;margin-top:3rem;">
+      <div id="carousel" style="display:flex;overflow:hidden;width:100%;">
+        <div class="carousel-slide" style="min-width:100%;height:80vh;flex-shrink:0;">
+          <img src="IMG_5710.jpeg" alt="Costa Noir" style="width:100%;height:100%;object-fit:cover;" />
+        </div>
+        <div class="carousel-slide" style="min-width:100%;height:80vh;flex-shrink:0;">
+          <img src="IMG_5780.jpeg" alt="Costa Noir" style="width:100%;height:100%;object-fit:cover;" />
+        </div>
+        <div class="carousel-slide" style="min-width:100%;height:80vh;flex-shrink:0;">
+          <img src="IMG_6562.jpeg" alt="Costa Noir" style="width:100%;height:100%;object-fit:cover;" />
+        </div>
+        <div class="carousel-slide" style="min-width:100%;height:80vh;flex-shrink:0;">
+          <img src="IMG_6591.jpeg" alt="Costa Noir" style="width:100%;height:100%;object-fit:cover;" />
+        </div>
+        <div class="carousel-slide" style="min-width:100%;height:80vh;flex-shrink:0;">
+          <img src="IMG_6606.jpeg" alt="Costa Noir" style="width:100%;height:100%;object-fit:cover;" />
+        </div>
+        <div class="carousel-slide" style="min-width:100%;height:80vh;flex-shrink:0;">
+          <img src="IMG_6841.jpeg" alt="Costa Noir" style="width:100%;height:100%;object-fit:cover;" />
+        </div>
+        <div class="carousel-slide" style="min-width:100%;height:80vh;flex-shrink:0;">
+          <img src="IMG_6862.jpeg" alt="Costa Noir" style="width:100%;height:100%;object-fit:cover;" />
+        </div>
+      </div>
+      <!-- Arrows -->
+      <button onclick="moveCarousel(-1)" style="position:absolute;top:50%;left:1.5rem;transform:translateY(-50%);background:rgba(4,13,7,0.7);border:1px solid rgba(245,245,240,0.3);color:var(--white);width:44px;height:44px;cursor:pointer;font-size:1.2rem;display:flex;align-items:center;justify-content:center;">&#8592;</button>
+      <button onclick="moveCarousel(1)" style="position:absolute;top:50%;right:1.5rem;transform:translateY(-50%);background:rgba(4,13,7,0.7);border:1px solid rgba(245,245,240,0.3);color:var(--white);width:44px;height:44px;cursor:pointer;font-size:1.2rem;display:flex;align-items:center;justify-content:center;">&#8594;</button>
+      <!-- Dots -->
+      <div id="dots" style="display:flex;justify-content:center;gap:0.5rem;padding:1.5rem 0;"></div>
     </div>
   </section>
 
@@ -1017,6 +1056,26 @@
       document.getElementById('hamburger').classList.toggle('open');
       document.getElementById('menuOverlay').classList.toggle('open');
     }
+
+    // Carousel
+    let current = 0;
+    const slides = document.querySelectorAll('.carousel-slide');
+    const dotsContainer = document.getElementById('dots');
+    slides.forEach((_, i) => {
+      const dot = document.createElement('div');
+      dot.style.cssText = `width:6px;height:6px;border-radius:50%;background:${i===0?'var(--white)':'rgba(245,245,240,0.3)'};cursor:pointer;transition:background 0.3s;`;
+      dot.onclick = () => goTo(i);
+      dotsContainer.appendChild(dot);
+    });
+    function goTo(n) {
+      current = (n + slides.length) % slides.length;
+      document.getElementById('carousel').style.transform = `translateX(-${current * 100}%)`;
+      document.getElementById('carousel').style.transition = 'transform 0.5s ease';
+      document.querySelectorAll('#dots div').forEach((d, i) => {
+        d.style.background = i === current ? 'var(--white)' : 'rgba(245,245,240,0.3)';
+      });
+    }
+    function moveCarousel(dir) { goTo(current + dir); }
 
     const reveals = document.querySelectorAll('.reveal');
     const observer = new IntersectionObserver((entries) => {
