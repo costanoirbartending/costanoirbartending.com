@@ -942,8 +942,7 @@
           <p>Every event is unique. Tell us what you have in mind — the occasion, the vibe, the guest count — and we'll get back to you with a tailored proposal.</p>
         </div>
 
-        <form id="quoteForm" action="https://formspree.io/f/mnjwowyr" method="POST">
-          <input type="hidden" name="_subject" value="Quote Request — Costa Noir" />
+        <form id="quoteForm" onsubmit="handleSubmit(event)">
           <div class="form-row">
             <div class="field">
               <label for="nome">First Name</label>
@@ -1017,6 +1016,7 @@
           </div>
 
           <button type="submit" class="submit-btn"><span>Send Request</span></button>
+          <div class="form-success" id="successMsg" style="display:none;">✦ Thank you! We'll be in touch soon.</div>
         </form>
       </div>
     </div>
@@ -1034,6 +1034,30 @@
     function toggleMenu() {
       document.getElementById('hamburger').classList.toggle('open');
       document.getElementById('menuOverlay').classList.toggle('open');
+    }
+
+    // Form submit
+    function handleSubmit(e) {
+      e.preventDefault();
+      const f = e.target;
+      const nome     = f.nome.value;
+      const cognome  = f.cognome.value;
+      const telefono = f.telefono.value || 'Not provided';
+      const servizio = f.servizio.value || 'Not specified';
+      const data     = f.data.value || 'To be confirmed';
+      const ospiti   = f.ospiti.value || 'Not specified';
+      const durata   = f.durata.value || 'Not specified';
+      const location = f.location.value || 'Not specified';
+      const msg      = f.messaggio.value || '';
+
+      const subject = encodeURIComponent(`Quote Request – ${nome} ${cognome}`);
+      const body = encodeURIComponent(
+        `Name: ${nome} ${cognome}\nPhone: ${telefono}\n\nBar Option: ${servizio}\nEvent Date: ${data}\nEvent Location: ${location}\nNumber of Guests: ${ospiti}\nEvent Duration: ${durata}\n\nMessage:\n${msg}`
+      );
+
+      window.location.href = `mailto:costanoirbartending@gmail.com?subject=${subject}&body=${body}`;
+      document.getElementById('successMsg').style.display = 'block';
+      f.reset();
     }
 
     // Carousel
